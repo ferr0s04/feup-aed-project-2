@@ -1,0 +1,9 @@
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\Proj2_AED -B D:\Proj2_AED\cmake-build-debug
+-- Found Doxygen: D:/doxygen/bin/doxygen.exe (found version "1.9.8") found components: doxygen dot 
+CMake Error: File D:/Proj2_AED/docs/Doxyfile does not exist.
+CMake Error at CMakeLists.txt:31 (configure_file):
+  configure_file Problem configuring file
+
+
+Doxygen build started
+-- Configuring incomplete, errors occurred!
