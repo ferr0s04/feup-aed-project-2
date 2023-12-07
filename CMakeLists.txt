@@ -27,7 +27,7 @@ if(DOXYGEN_FOUND)
     endif()
 
     set(DOXYGEN_IN "docs/Doxyfile")
-    set(DOXYGEN_OUT "Doxyfile")
+    set(DOXYGEN_OUT "docs/Doxyfile")
     configure_file("${DOXYGEN_IN}" "${DOXYGEN_OUT}" @ONLY)
 
     message("Doxygen build started")
