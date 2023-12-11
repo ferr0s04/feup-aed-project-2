@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include "Airline.h"
 #include "Airport.h"
 #include "Flight.h"
@@ -12,13 +15,17 @@ using namespace std;
 class DataHandler {
 public:
     DataHandler(const string& airlines_file, const string& airports_file, const string& flights_file);
-    static bool AirlinesParse(const string& airlines_file);
-    static bool AirportsParse(const string& airports_file);
-    static bool FlightsParse(const string& flights_file);
+    bool AirlinesParse(const string& airlines_file);
+    bool AirportsParse(const string& airports_file);
+    bool FlightsParse(const string& flights_file);
+    vector<Airline> getParsedAirlines();
+    vector<Airport> getParsedAirports();
+    vector<Flight> getParsedFlights();
 private:
-    static vector<Airline> parsedAirlines;
-    static vector<Airport> parsedAirports;
-    static vector<Flight> parsedFlights;
+    vector<Airline> parsedAirlines;
+    vector<Airport> parsedAirports;
+    vector<Flight> parsedFlights;
+    void readCSV(const string& filename, vector<string>& data);
 };
 
 

@@ -18,3 +18,13 @@ string Airline::getAirlineCallsign() const {
 string Airline::getAirlineCountry() const {
     return country;
 }
+
+void Airline::setAirlines(vector<Airline> airlines_data) {
+    airlines = move(airlines_data);
+}
+
+vector<Airline> Airline::getAirlines() {
+    return airlines;
+}
+
+vector<Airline> Airline::airlines;

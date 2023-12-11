@@ -7,25 +7,32 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Airline.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Flight.h"{}}}
-\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_handler}{DataHandler}}\ \{}
-\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_data_handler}{DataHandler}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airlines\_file,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airports\_file,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ flights\_file);}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ AirlinesParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airlines\_file);}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ AirportsParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airports\_file);}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ FlightsParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ flights\_file);}
-\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ vector<Airline>\ parsedAirlines;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ vector<Airport>\ parsedAirports;}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ vector<Flight>\ parsedFlights;}
-\DoxyCodeLine{00022\ \};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJ2\_AED\_DATAHANDLER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Airline.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Airport.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Flight.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_handler}{DataHandler}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_data_handler}{DataHandler}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airlines\_file,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airports\_file,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ flights\_file);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ AirlinesParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airlines\_file);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ AirportsParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ airports\_file);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ FlightsParse(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ flights\_file);}
+\DoxyCodeLine{00021\ \ \ \ \ vector<Airline>\ getParsedAirlines();}
+\DoxyCodeLine{00022\ \ \ \ \ vector<Airport>\ getParsedAirports();}
+\DoxyCodeLine{00023\ \ \ \ \ vector<Flight>\ getParsedFlights();}
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ vector<Airline>\ parsedAirlines;}
+\DoxyCodeLine{00026\ \ \ \ \ vector<Airport>\ parsedAirports;}
+\DoxyCodeLine{00027\ \ \ \ \ vector<Flight>\ parsedFlights;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ readCSV(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ filename,\ vector<string>\&\ data);}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PROJ2\_AED\_DATAHANDLER\_H}}
 
 \end{DoxyCode}

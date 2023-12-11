@@ -12,6 +12,8 @@ public:
     string getAirlineName() const;
     string getAirlineCallsign() const;
     string getAirlineCountry() const;
+    static void setAirlines(vector<Airline> airlines_data);
+    static vector<Airline> getAirlines();
 private:
     const string code;
     const string name;

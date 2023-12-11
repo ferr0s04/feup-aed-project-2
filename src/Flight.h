@@ -9,6 +9,8 @@ using namespace std;
 class Flight {
 public:
     Flight(const string& source, const string& target, const string& airline);
+    static void setFlights(vector<Flight> flights_data);
+    static vector<Flight> getFlights();
 private:
     const string source;
     const string target;
