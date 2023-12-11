@@ -7,4 +7,6 @@ void Application::run() {
     Airline::setAirlines(CSV_Data.getParsedAirlines());
     Airport::setAirports(CSV_Data.getParsedAirports());
     Flight::setFlights(CSV_Data.getParsedFlights());
+    Script script;
+    script.run();
 }
