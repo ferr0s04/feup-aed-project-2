@@ -1,3 +1,0 @@
-C:/Users/luisf/Desktop/AED/Proj2_AED/cmake-build-debug/CMakeFiles/Proj2_AED.dir
-C:/Users/luisf/Desktop/AED/Proj2_AED/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/luisf/Desktop/AED/Proj2_AED/cmake-build-debug/CMakeFiles/rebuild_cache.dir
