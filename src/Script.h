@@ -2,6 +2,8 @@
 #define PROJ2_AED_SCRIPT_H
 #include <fstream>
 #include <iostream>
+#include "Airport.h"
+#include "Flight.h"
 
 using namespace std;
 
@@ -10,7 +12,10 @@ public:
     void run();
 private:
     ifstream input;
+    Airport airport = Airport("", "", "", "", 0, 0);
+    Flight flight = Flight("", "", "");
     void help();
+    void globalStats();
 };
 
 
