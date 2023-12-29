@@ -11,19 +11,21 @@ public:
     Airport(const string& code, const string& name, const string& city, const string& country, const double& latitude, const double& longitude);
     static void setAirports(vector<Airport> airports_data);
     static vector<Airport> getAirports();
-    string getcode();
-    string getname();
-    string getcity();
-    string getcountry();
-    double getlatitude();
-    double getlongitude();
+    string getCode() const;
+    string getName() const;
+    string getCity() const;
+    string getCountry() const;
+    double getLatitude() const;
+    double getLongitude() const;
+    bool operator<(const Airport& other) const;
+    Airport& operator=(const Airport& other);
 private:
-    const string code;
-    const string name;
-    const string city;
-    const string country;
-    const double latitude;
-    const double longitude;
+    string code;
+    string name;
+    string city;
+    string country;
+    double latitude;
+    double longitude;
     static vector<Airport> airports;
 };
 

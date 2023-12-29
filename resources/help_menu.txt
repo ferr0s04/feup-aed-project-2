@@ -1,3 +1,8 @@
 List of available commands:
-global-stats
-num-voo-cid
+
+airports-country -> displays the list of airports of a given country
+destinations -> shows the number of cities, airports and countries available for a given airport.
+ A list of cities and countries is also shown
+flights-airport -> displays the number of flights out of a given airport and corresponding number of airlines
+global-stats -> shows the global number of airports, flights and airlines
+num-voo-cid -> displays the number of flights of a given city or airline

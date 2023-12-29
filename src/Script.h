@@ -3,8 +3,11 @@
 
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+#include <set>
 #include "Airport.h"
 #include "Flight.h"
+#include "Airline.h"
 
 using namespace std;
 
@@ -13,11 +16,12 @@ public:
     void run();
 private:
     ifstream input;
-    Airport airport = Airport("", "", "", "", 0, 0);
-    Flight flight = Flight("", "", "");
     void help();
     void globalStats();
     void flights_per_city();
+    void flightsAirport();
+    void airportsCountry();
+    void destinations();
 };
 
 
