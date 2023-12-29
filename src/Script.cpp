@@ -93,25 +93,20 @@ void Script::flights_per_city() {
         cin >> cidade;
 
         int contadorcidade = 0;
-        auto listavoo = Flight::getFlights();
-        auto listaportos = Airport::getAirports();
 
-        for (auto i : listavoo) {
-            string companhiatemp = i.getSource();
-            string alvo;
-
-            for (auto j : listaportos) {
-                string testecode = j.getCode();
-                if (testecode == companhiatemp) {
-                    alvo = j.getCity();
-                    break;
-                }
-            }
-            if (alvo == cidade) {
-                contadorcidade++;
+        vector<Airport> cityAirports;
+        for (Airport& a : Airport::getAirports()) {
+            if (a.getCity() == cidade) {
+                cityAirports.push_back(a);
             }
         }
-
+        for (Flight& f : Flight::getFlights()) {
+            for (Airport& a : cityAirports) {
+                if (f.getSource() == a.getCode()) {
+                    contadorcidade++;
+                }
+            }
+        }
         cout << contadorcidade;
     }
 }
