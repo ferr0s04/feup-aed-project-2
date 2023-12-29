@@ -36,6 +36,11 @@ void Script::run() {
             cout << '\n';
             continue;
         }
+        if (command == "top-capacity") {
+            topCapacity();
+            cout << '\n';
+            continue;
+        }
         else {
             cerr << "Invalid command. Type 'help' to show list of available commands." << endl;
             continue;
@@ -185,6 +190,52 @@ void Script::destinations() {
     cout << "List of destination countries:" << endl;
     for (string country : destCountries) {
         cout << country << endl;
+    }
+}
+
+void Script::topCapacity() {
+    int range;
+    cout << "Please define list range:";
+    cin >> range;
+    map<string,int> flightsPerAirport;
+
+    // Number of departure flights by airport
+    for (Flight& f : Flight::getFlights()) {
+        auto it = flightsPerAirport.find(f.getSource());
+        if (it != flightsPerAirport.end()) {
+            it->second ++;
+        } else {
+            flightsPerAirport[f.getSource()] ++;
+        }
+    }
+
+    // Number of arrival flights by airport
+    for (Flight& f : Flight::getFlights()) {
+        auto it = flightsPerAirport.find(f.getTarget());
+        if (it != flightsPerAirport.end()) {
+            it->second ++;
+        } else {
+            flightsPerAirport[f.getTarget()] ++;
+        }
+    }
+
+    // Sort by decreasing order of capacity
+    std::vector<std::pair<std::string, int>> sortedAirports(flightsPerAirport.begin(), flightsPerAirport.end());
+    std::sort(sortedAirports.begin(), sortedAirports.end(), [](const auto& a, const auto& b) {
+        return a.second > b.second;
+    });
+
+    int position = 1;
+    for (int i = 0; i < range && i < sortedAirports.size(); ++i) {
+        const auto& e = sortedAirports[i];
+        string name;
+        for (Airport& a : Airport::getAirports()) {
+            if (a.getCode() == e.first) {
+                name = a.getName();
+            }
+        }
+        cout << position << " | Airport: " << e.first << " | Name: " << name << " | Capacity: " << e.second << endl;
+        position++;
     }
 }
 
