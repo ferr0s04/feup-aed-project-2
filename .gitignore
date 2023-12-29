@@ -23,3 +23,9 @@ cmake-build-debug/Makefile
 *.txt
 *.cmake
 *.bin
+*.exe
+*.internal
+*.yaml
+*.check_cache
+*.cpp
+*.c

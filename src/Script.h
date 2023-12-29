@@ -1,5 +1,6 @@
 #ifndef PROJ2_AED_SCRIPT_H
 #define PROJ2_AED_SCRIPT_H
+
 #include <fstream>
 #include <iostream>
 #include "Airport.h"
@@ -16,6 +17,7 @@ private:
     Flight flight = Flight("", "", "");
     void help();
     void globalStats();
+    void flights_per_city();
 };
 
 

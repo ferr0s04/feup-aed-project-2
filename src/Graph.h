@@ -35,19 +35,12 @@ template <class T> class Vertex;
         void setProcessing(bool p);
         const vector<Edge<T>> &getAdj() const;
         void setAdj(const vector<Edge<T>> &adj);
-
         int getIndegree() const;
-
         void setIndegree(int indegree);
-
         int getNum() const;
-
         void setNum(int num);
-
         int getLow() const;
-
         void setLow(int low);
-
         friend class Graph<T>;
     };
 

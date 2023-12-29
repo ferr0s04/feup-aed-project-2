@@ -11,4 +11,16 @@ vector<Flight> Flight::getFlights() {
     return flights;
 }
 
+string Flight::getsource() {
+    return source;
+}
+
+string Flight::gettarget() {
+    return target;
+}
+
+string Flight::getairline() {
+    return airline;
+}
+
 vector<Flight> Flight::flights;

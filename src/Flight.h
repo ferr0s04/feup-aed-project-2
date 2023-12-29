@@ -11,6 +11,9 @@ public:
     Flight(const string& source, const string& target, const string& airline);
     static void setFlights(vector<Flight> flights_data);
     static vector<Flight> getFlights();
+    string getsource();
+    string gettarget();
+    string getairline();
 private:
     const string source;
     const string target;

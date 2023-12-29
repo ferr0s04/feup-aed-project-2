@@ -12,4 +12,28 @@ vector<Airport> Airport::getAirports() {
     return airports;
 }
 
+string Airport::getcode() {
+    return code;
+}
+
+string Airport::getname() {
+    return name;
+}
+
+string Airport::getcountry() {
+    return country;
+}
+
+string Airport::getcity() {
+    return city;
+}
+
+double Airport::getlatitude() {
+    return latitude;
+}
+
+double Airport::getlongitude() {
+    return longitude;
+}
+
 vector<Airport> Airport::airports;

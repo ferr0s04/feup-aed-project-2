@@ -1,1 +1,3 @@
 List of available commands:
+global-stats
+num-voo-cid
