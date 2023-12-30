@@ -44,6 +44,8 @@ bool DataHandler::AirportsParse(const string &airports_file) {
             double longitude = stod(Longitude);
             Airport airport(Code, Name, City, Country, latitude, longitude);
             parsedAirports.push_back(airport);
+            //TODO check if it's already there
+            network.addVertex(airport);
         } else {
             cerr << "Failed to get airports from file" << endl;
         }
@@ -63,6 +65,15 @@ bool DataHandler::FlightsParse(const string &flights_file) {
             getline(ss, Airline)) {
             Flight flight(Source, Target, Airline);
             parsedFlights.push_back(flight);
+            Airport airport = Airport("", "", "", "", 0, 0);
+            for (Airport source_airport : airport.getAirports()) {
+                if (source_airport.getCode() == Source){
+                    for (Airport target_airport : airport.getAirports()){
+                        if(target_airport.getCode() == Target)
+                            network.addEdge(source_airport, target_airport, 0);
+                    }
+                }
+            }
         } else {
             cerr << "Failed to get flights from file" << endl;
         }

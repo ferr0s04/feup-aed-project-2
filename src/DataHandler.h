@@ -9,6 +9,7 @@
 #include "Airline.h"
 #include "Airport.h"
 #include "Flight.h"
+#include "Graph.h"
 using namespace std;
 
 
@@ -22,6 +23,7 @@ public:
     vector<Airport> getParsedAirports();
     vector<Flight> getParsedFlights();
 private:
+    Graph<Airport> network;
     vector<Airline> parsedAirlines;
     vector<Airport> parsedAirports;
     vector<Flight> parsedFlights;
