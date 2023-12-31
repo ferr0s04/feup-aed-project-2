@@ -17,8 +17,12 @@ public:
     string getCountry() const;
     double getLatitude() const;
     double getLongitude() const;
+    void addToAirports();
     bool operator<(const Airport& other) const;
     Airport& operator=(const Airport& other);
+    bool operator==(const Airport &other)  {
+        return other.getCode() == this->getCode();
+    }
 private:
     string code;
     string name;

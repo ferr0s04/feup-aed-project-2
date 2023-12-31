@@ -22,8 +22,9 @@ public:
     vector<Airline> getParsedAirlines();
     vector<Airport> getParsedAirports();
     vector<Flight> getParsedFlights();
+    Graph getNetwork();
 private:
-    Graph<Airport> network;
+    Graph network;
     vector<Airline> parsedAirlines;
     vector<Airport> parsedAirports;
     vector<Flight> parsedFlights;

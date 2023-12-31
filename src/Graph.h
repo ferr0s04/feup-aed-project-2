@@ -6,80 +6,78 @@
 #include <queue>
 #include <stack>
 #include <list>
+#include "Airport.h"
 
 using namespace std;
 
-template <class T> class Edge;
-template <class T> class Graph;
-template <class T> class Vertex;
+class Edge;
+class Graph;
+class Vertex;
 
-    template <class T>
-    class Vertex {
-        T info;                // contents
-        vector<Edge<T> > adj;  // list of outgoing edges
-        bool visited;          // auxiliary field
-        bool processing;       // auxiliary field
-        int indegree;          // auxiliary field
-        int num;               // auxiliary field
-        int low;               // auxiliary field
+class Vertex {
+    Airport info;                // contents
+    vector<Edge> adj;  // list of outgoing edges
+    bool visited;          // auxiliary field
+    bool processing;       // auxiliary field
+    int indegree;          // auxiliary field
+    int num;               // auxiliary field
+    int low;               // auxiliary field
 
-        void addEdge(Vertex<T> *dest, double w);
-        bool removeEdgeTo(Vertex<T> *d);
-    public:
-        Vertex(T in);
-        T getInfo() const;
-        void setInfo(T in);
-        bool isVisited() const;
-        void setVisited(bool v);
-        bool isProcessing() const;
-        void setProcessing(bool p);
-        const vector<Edge<T>> &getAdj() const;
-        void setAdj(const vector<Edge<T>> &adj);
-        int getIndegree() const;
-        void setIndegree(int indegree);
-        int getNum() const;
-        void setNum(int num);
-        int getLow() const;
-        void setLow(int low);
-        friend class Graph<T>;
-    };
+    void addEdge(Vertex *dest, double w);
+    bool removeEdgeTo(Vertex *d);
+public:
+    Vertex(Airport in);
+    Airport getInfo() const;
+    void setInfo(Airport in);
+    bool isVisited() const;
+    void setVisited(bool v);
+    bool isProcessing() const;
+    void setProcessing(bool p);
+    const vector<Edge> &getAdj() const;
+    void setAdj(const vector<Edge> &adj);
+    int getIndegree() const;
+    void setIndegree(int indegree);
+    int getNum() const;
+    void setNum(int num);
+    int getLow() const;
+    void setLow(int low);
+    friend class Graph;
+};
 
-    template <class T>
-    class Edge {
-        Vertex<T> * dest;      // destination vertex
-        double weight;         // edge weight
-    public:
-        Edge(Vertex<T> *d, double w);
-        Vertex<T> *getDest() const;
-        void setDest(Vertex<T> *dest);
-        double getWeight() const;
-        void setWeight(double weight);
-        friend class Graph<T>;
-        friend class Vertex<T>;
-    };
+class Edge {
+    Vertex * dest;      // destination vertex
+    double weight;         // edge weight
+public:
+    Edge(Vertex *d, double w);
+    Vertex *getDest() const;
+    void setDest(Vertex *dest);
+    double getWeight() const;
+    void setWeight(double weight);
+    friend class Graph;
+    friend class Vertex;
+};
 
-    template <class T>
-    class Graph {
-        vector<Vertex<T> *> vertexSet;      // vertex set
-        int _index_;                        // auxiliary field
-        stack<Vertex<T>> _stack_;           // auxiliary field
-        list<list<T>> _list_sccs_;        // auxiliary field
+class Graph {
+    vector<Vertex *> vertexSet;      // vertex set
+    int _index_;                        // auxiliary field
+    stack<Vertex> _stack_;           // auxiliary field
+    list<list<Airport>> _list_sccs_;        // auxiliary field
 
-        void dfsVisit(Vertex<T> *v,  vector<T> & res) const;
-        bool dfsIsDAG(Vertex<T> *v) const;
-    public:
-        Vertex<T> *findVertex(const T &in) const;
-        int getNumVertex() const;
-        bool addVertex(const T &in);
-        bool removeVertex(const T &in);
-        bool addEdge(const T &sourc, const T &dest, double w);
-        bool removeEdge(const T &sourc, const T &dest);
-        vector<Vertex<T> * > getVertexSet() const;
-        vector<T> dfs() const;
-        vector<T> dfs(const T & source) const;
-        vector<T> bfs(const T &source) const;
-        vector<T> topsort() const;
-    };
+    void dfsVisit(Vertex *v,  vector<Airport> & res) const;
+    bool dfsIsDAG(Vertex *v) const;
+public:
+    Vertex *findVertex(const Airport &in) const;
+    int getNumVertex() const;
+    bool addVertex(const Airport &in);
+    bool removeVertex(const Airport &in);
+    bool addEdge(const Airport &sourc, const Airport &dest, double w);
+    bool removeEdge(const Airport &sourc, const Airport &dest);
+    vector<Vertex * > getVertexSet() const;
+    vector<Airport> dfs() const;
+    vector<Airport> dfs(const Airport & source) const;
+    vector<Airport> bfs(const Airport &source) const;
+    vector<Airport> topsort() const;
+};
 
 
 #endif //PROJ2_AED_GRAPH_H

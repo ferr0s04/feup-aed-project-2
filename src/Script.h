@@ -9,14 +9,17 @@
 #include "Airport.h"
 #include "Flight.h"
 #include "Airline.h"
+#include "Graph.h"
 
 using namespace std;
 
 class Script {
 public:
     void run();
+    Script(Graph n);
 private:
     ifstream input;
+    Graph network;
     void help();
     void globalStats();
     void flights_per_city();
@@ -24,6 +27,9 @@ private:
     void airportsCountry();
     void destinations();
     void topCapacity();
+    void countriesFromAirportOrCityCount();
+    set<string> countriesFromAirportCount(const string& airport_code);
+    void countriesFromCityCount();
 };
 
 

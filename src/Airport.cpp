@@ -32,6 +32,10 @@ string Airport::getName() const {
     return name;
 }
 
+void Airport::addToAirports(){
+    airports.push_back(*this);
+}
+
 bool Airport::operator<(const Airport& other) const {
     return code < other.code;
 }
