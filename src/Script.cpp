@@ -262,7 +262,7 @@ void Script::topCapacity() {
 }
 
 void Script::countriesFromAirportOrCityCount(){
-    cout << "If you wish to know the number of countries that a given airport flies to press 'A'\n "
+    cout << "If you wish to know the number of countries that a given airport flies to press 'A' \n"
          << "If you wish to know the number of countries that a given city flies to press 'C' \n";
     char option;
     cin >> option;
@@ -312,16 +312,15 @@ set<string> Script::countriesFromAirport(const string& airport_code){
 }
 
 void Script::countriesFromCityCount() {
-    // TODO fix, this is not working
     string city;
     cout << "Please insert the city's name\n";
     cin >> city;
     Airport airport = Airport("", "", "", "", 0, 0);
     set<string> city_airport_codes;
     set<string> countries;
-    for (Airport airprt : airport.getAirports()){
-        if (airprt.getCity() == city){
-            city_airport_codes.insert(airport.getCode());
+    for (Airport a : airport.getAirports()){
+        if (a.getCity() == city){
+            city_airport_codes.insert(a.getCode());
         }
     }
     for (string airport_code : city_airport_codes){
