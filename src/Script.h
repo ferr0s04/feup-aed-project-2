@@ -70,12 +70,12 @@ private:
     void countriesFromCityCount();
 
     /**
-     * Função que indica os aeroportos que são essenciais.
+     * Function that indicates which airports are essencials.
      */
     void essencial();
 
     /**
-     * Função que indica a quantidade de voos que são realizaveis dado um aeroporto com x paragens.
+     * Function that indicates the quantitaty of flights that you can achieve given an airport with x stops.
      */
     void xvindoAeroporto();
 };

@@ -1,11 +1,11 @@
 List of available commands:
 
-airports-country -> displays the list of airports of a given country
-destinations -> shows the number of cities, airports and countries available for a given airport.
- A list of cities and countries is also shown
-flights-airport -> displays the number of flights out of a given airport and corresponding number of airlines
-global-stats -> shows the global number of airports, flights and airlines
-num-voo-cid -> displays the number of flights of a given city or airline
-countries-count-from-airport/city -> displays the number of different countries that a given airport/city flies to
-essencial -> Indica se o Aeroporto é essencial ou nao
-xvindo -> Indica o numero de cidades ou paises ou aeroportos a uma certa distancia do aeroporto dado
+airports-country -> Displays the list of airports of a given country.
+destinations -> Shows the number of cities, airports and countries available for a given airport.
+                A list of cities and countries is also shown.
+flights-airport -> Displays the number of flights out of a given airport and corresponding number of airlines.
+global-stats -> Shows the global number of airports, flights and airlines.
+flight-per-city -> Displays the number of flights of a given city or airline.
+countries-count-from-airport/city -> Displays the number of different countries that a given airport/city flies to.
+essential -> Displays the airports that are essential to the network.
+xgiven -> Shows the number of cities or countries or airports given an airport with x stops.

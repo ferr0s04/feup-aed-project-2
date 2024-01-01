@@ -38,7 +38,7 @@ void Script::run() {
             cout << '\n';
             continue;
         }
-        if (command == "num-voo-cid") {
+        if (command == "flight-per-city") {
             flights_per_city();
             cout << '\n';
             continue;
@@ -52,11 +52,11 @@ void Script::run() {
             countriesFromAirportOrCityCount();
             cout << "\n";
         }
-        if (command == "essencial") {
+        if (command == "essential") {
             essencial();
             cout << "\n";
         }
-        if (command == "xvindo") {
+        if (command == "xgiven") {
             xvindoAeroporto();
             cout << "\n";
         }
@@ -87,54 +87,55 @@ void Script::globalStats() {
 }
 
 void Script::flights_per_city() {
-    string companhia;
-    string cidade;
-    string resposta;
+    string airline;
+    string city;
+    string answer;
 
-    cout << "Companhia ou cidade?" << endl;
-    cout << "Escreve 'companhia' para a primeira opcao ou 'cidade' para a segunda opcao" << endl;
-    cout << "Resposta:";
-    cin >> resposta;
+    cout << "Airline or City?" << endl;
+    cout << "Write 'airline' for the first option or 'city' for the second one" << endl;
+    cout << "Answer:";
+    cin >> answer;
 
-    if (resposta == "companhia") {
-        cout << "Qual o codigo da companhia?" << endl;
-        cout << "Resposta:";
-        cin >> companhia;
+    if (answer == "airline") {
+        cout << "Whats the airline code?" << endl;
+        cout << "Answer:";
+        cin >> airline;
 
-        int contadorcompanhia = 0;
-        auto lista = Flight::getFlights();
+        int airlinecounter = 0;
 
-        for (auto i : lista) {
-            string alvo = i.getAirline();
-            if (alvo == companhia) {
-                contadorcompanhia++;
+        auto list = Flight::getFlights();
+
+        for (auto i : list) {
+            string target = i.getAirline();
+            if (target == airline) {
+                airlinecounter++;
             }
         }
 
-        cout << "Existem " << contadorcompanhia << "voos da " << companhia << endl;
+        cout << "Exists " << airlinecounter << " flights by " << airline << endl;
     }
 
-    if (resposta == "cidade") {
-        cout << "Qual a cidade?" << endl;
-        cout << "Resposta:";
-        cin >> cidade;
+    if (answer == "city") {
+        cout << "Which city?" << endl;
+        cout << "Answer:";
+        cin >> city;
 
-        int contadorcidade = 0;
+        int citycounter = 0;
 
         vector<Airport> cityAirports;
         for (Airport& a : Airport::getAirports()) {
-            if (a.getCity() == cidade) {
+            if (a.getCity() == city) {
                 cityAirports.push_back(a);
             }
         }
         for (Flight& f : Flight::getFlights()) {
             for (Airport& a : cityAirports) {
                 if (f.getSource() == a.getCode()) {
-                    contadorcidade++;
+                    citycounter++;
                 }
             }
         }
-        cout << "Existem " << contadorcidade << "voos da " << cidade << endl;
+        cout << "Exists " << citycounter << " flights from " << city << endl;
     }
 }
 
@@ -332,98 +333,92 @@ void Script::countriesFromCityCount() {
 }
 
 void Script::essencial() {
-    //TODO Não sei como calcular se é essencial ou nao
 }
 
 void Script::xvindoAeroporto() {
-    //TODO verificar se tem aliases e meter caso de erro de escrita
-    string Aeroportocode;
-    string Opcao;
-    int distancia;
-    int quantidade = 0;
-    auto listadevoos = network.getVertexSet();
-    auto listaAeroporto = Airport::getAirports();
-    set<string> listatemp;
+    string AirportCode;
+    string Option;
+    int Stops;
+    int Amount = 0;
+    auto Airportslist = Airport::getAirports();
+    set<string> TempList;
 
 
-    cout << "Indica o codigo do Aeroporto:" << endl;
-    cout << "Resposta:";
-    cin  >> Aeroportocode;
+    cout << "The code of the airport" << endl;
+    cout << "Answer:";
+    cin  >> AirportCode;
 
-    cout << "Queres saber sobre Cidades , Paises ou Aeroportos?" << endl;
-    cout << "Escreve 'cidade' ou 'pais' ou 'porto'." << endl;
-    cout << "Resposta:";
-    cin >> Opcao;
+    cout << "Do you which to know about cities, countries or airports?" << endl;
+    cout << "Write 'city', 'country' or 'airports'." << endl;
+    cout << "Answer:";
+    cin >> Option;
 
-    cout << "Quantas paragens queres fazer ate ao destino?" << endl;
-    cout << "Resposta:";
-    cin >> distancia;
+    cout << "How many stops are gonna have before the final arrival?" << endl;
+    cout << "Answer:";
+    cin >> Stops;
 
-    if (Opcao == "cidade") {
-        if (distancia == 0) {
-            for (auto item: listaAeroporto) {
-                if (item.getCode() == Aeroportocode) {
+    if (Option == "city") {
+        if (Stops == 0) {
+            for (auto item: Airportslist) {
+                if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
                     auto vedges = vitem->getAdj();
-                    for (auto cont : vedges) {
-                        auto temp = cont.getDest()->getInfo();
-                        listatemp.insert(temp.getCity());
+                    for (auto count : vedges) {
+                        auto temp = count.getDest()->getInfo();
+                        TempList.insert(temp.getCity());
                     }
-                    for (auto i : listatemp) {
-                        quantidade++;
+                    for (auto i : TempList) {
+                        Amount++;
                     }
                     break;
                 }
             }
         }
         else {
-            //TODO Capacidade de calcular com base na distancia
         }
     }
 
-    if (Opcao == "pais") {
-        if (distancia == 0) {
-            for (auto item: listaAeroporto) {
-                if (item.getCode() == Aeroportocode) {
+    if (Option == "country") {
+        if (Stops == 0) {
+            for (auto item: Airportslist) {
+                if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
                     auto vedges = vitem->getAdj();
-                    for (auto cont : vedges) {
-                        auto temp = cont.getDest()->getInfo();
-                        listatemp.insert(temp.getCountry());
+                    for (auto count : vedges) {
+                        auto temp = count.getDest()->getInfo();
+                        TempList.insert(temp.getCountry());
                     }
-                    for (auto i : listatemp) {
-                        quantidade++;
+                    for (auto i : TempList) {
+                        Amount++;
                     }
                     break;
                 }
             }
         }
         else {
-            //TODO Capacidade de calcular com base na distancia
         }
     }
 
-    if (Opcao == "porto") {
-        if (distancia == 0) {
-            for (auto item: listaAeroporto) {
-                if (item.getCode() == Aeroportocode) {
+    if (Option == "airport") {
+        if (Stops == 0) {
+            for (auto item: Airportslist) {
+                if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
                     auto vedges = vitem->getAdj();
-                    for (auto cont : vedges) {
-                        auto temp = cont.getDest()->getInfo();
-                        listatemp.insert(temp.getCode());
+                    for (auto count : vedges) {
+                        auto temp = count.getDest()->getInfo();
+                        TempList.insert(temp.getCode());
                     }
-                    for (auto i : listatemp) {
-                        quantidade++;
+                    for (auto i : TempList) {
+                        Amount++;
                     }
                     break;
                 }
             }
         }
         else {
-            //TODO Capacidade de calcular com base na distancia
         }
     }
 
-    cout << "Existem " << quantidade << " voos a distancia de " << distancia << " paragens do aeroporto " << Aeroportocode << endl;
+    cout << "Exists " << Amount << " flights with a distance of " << Stops << " stops from the airport " << AirportCode << endl;
 }
