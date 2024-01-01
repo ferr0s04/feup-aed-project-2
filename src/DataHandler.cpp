@@ -58,6 +58,7 @@ bool DataHandler::FlightsParse(const string &flights_file) {
     readCSV(flights_file, data);
     Airport source_airport = Airport("", "", "", "", 0, 0);
     Airport target_airport = Airport("", "", "", "", 0, 0);
+    Airline airline = Airline("", "", "", "");
     for (const std::string& line : data) {
         istringstream ss(line);
         string Source, Target, Airline;
@@ -76,7 +77,13 @@ bool DataHandler::FlightsParse(const string &flights_file) {
                 if(source_airport.getCode() == Source && target_airport.getCode() == Target)
                     break;
             }
-            network.addEdge(source_airport, target_airport, 0);
+            for (class Airline a : parsedAirlines){
+                if (a.getAirlineCode() == Airline){
+                    airline = a;
+                    break;
+                }
+            }
+            network.addEdge(source_airport, target_airport, airline);
         } else {
             cerr << "Failed to get flights from file" << endl;
         }

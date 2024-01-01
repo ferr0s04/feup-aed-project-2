@@ -301,6 +301,7 @@ set<string> Script::countriesFromAirport(const string& airport_code){
 }
 
 void Script::countriesFromCityCount() {
+    // TODO fix, this is not working
     string city;
     cout << "Please insert the city's name\n";
     cin >> city;

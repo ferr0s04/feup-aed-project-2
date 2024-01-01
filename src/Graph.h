@@ -7,6 +7,7 @@
 #include <stack>
 #include <list>
 #include "Airport.h"
+#include "Airline.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ class Vertex {
     int num;               // auxiliary field
     int low;               // auxiliary field
 
-    void addEdge(Vertex *dest, double w);
+    void addEdge(Vertex *dest, Airline a);
     bool removeEdgeTo(Vertex *d);
 public:
     Vertex(Airport in);
@@ -46,13 +47,13 @@ public:
 
 class Edge {
     Vertex * dest;      // destination vertex
-    double weight;         // edge weight
+    Airline airline;         // edge airline
 public:
-    Edge(Vertex *d, double w);
+    Edge(Vertex *d, Airline a);
     Vertex *getDest() const;
     void setDest(Vertex *dest);
-    double getWeight() const;
-    void setWeight(double weight);
+    Airline getAirline() const;
+    void setAirline(Airline a);
     friend class Graph;
     friend class Vertex;
 };
@@ -70,7 +71,7 @@ public:
     int getNumVertex() const;
     bool addVertex(const Airport &in);
     bool removeVertex(const Airport &in);
-    bool addEdge(const Airport &sourc, const Airport &dest, double w);
+    bool addEdge(const Airport &sourc, const Airport &dest, Airline a);
     bool removeEdge(const Airport &sourc, const Airport &dest);
     vector<Vertex * > getVertexSet() const;
     vector<Airport> dfs() const;

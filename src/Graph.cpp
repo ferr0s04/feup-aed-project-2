@@ -2,7 +2,7 @@
 
 Vertex::Vertex(Airport in): info(in) {}
 
-Edge::Edge(Vertex *d, double w): dest(d), weight(w) {}
+Edge::Edge(Vertex *d, Airline a): dest(d), airline(a) {}
 
 
 int Graph::getNumVertex() const {
@@ -37,12 +37,12 @@ void Edge::setDest(Vertex *d) {
     Edge::dest = d;
 }
 
-double Edge::getWeight() const {
-    return weight;
+Airline Edge::getAirline() const {
+    return airline;
 }
 
-void Edge::setWeight(double weight) {
-    Edge::weight = weight;
+void Edge::setAirline(Airline a) {
+    Edge::airline = a;
 }
 
 
@@ -101,17 +101,17 @@ bool Graph::addVertex(const Airport &in) {
     return true;
 }
 
-bool Graph::addEdge(const Airport &sourc, const Airport &dest, double w) {
+bool Graph::addEdge(const Airport &sourc, const Airport &dest, Airline a) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)
         return false;
-    v1->addEdge(v2,w);
+    v1->addEdge(v2,a);
     return true;
 }
 
-void Vertex::addEdge(Vertex *d, double w) {
-    adj.push_back(Edge(d, w));
+void Vertex::addEdge(Vertex *d, Airline a) {
+    adj.push_back(Edge(d, a));
 }
 
 

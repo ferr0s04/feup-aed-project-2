@@ -14,6 +14,17 @@ public:
     string getAirlineCountry() const;
     static void setAirlines(vector<Airline> airlines_data);
     static vector<Airline> getAirlines();
+    Airline& operator=(const Airline& other){
+        if (this != &other) {
+            // Copy the values from the other object
+            // into the current object
+            const_cast<string&>(code) = other.code;
+            const_cast<string&>(name) = other.name;
+            const_cast<string&>(callsign) = other.callsign;
+            const_cast<string&>(country) = other.country;
+        }
+        return *this;
+    }
 private:
     const string code;
     const string name;
