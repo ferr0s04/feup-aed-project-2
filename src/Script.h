@@ -30,6 +30,8 @@ private:
     void countriesFromAirportOrCityCount();
     set<string> countriesFromAirport(const string& airport_code);
     void countriesFromCityCount();
+    void essencial();
+    void xvindoAeroporto();
 };
 
 
