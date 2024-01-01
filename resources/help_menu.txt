@@ -7,3 +7,5 @@ flights-airport -> displays the number of flights out of a given airport and cor
 global-stats -> shows the global number of airports, flights and airlines
 num-voo-cid -> displays the number of flights of a given city or airline
 countries-count-from-airport/city -> displays the number of different countries that a given airport/city flies to
+essencial -> Indica se o Aeroporto é essencial ou nao
+xvindo -> Indica o numero de cidades ou paises ou aeroportos a uma certa distancia do aeroporto dado
