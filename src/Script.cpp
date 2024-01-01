@@ -8,7 +8,7 @@ Script::Script(Graph n) {
 
 void Script::run() {
     string command;
-    cout << "You can now start using the program. Write 'help' or '?' to get help";
+    cout << "You can now start using the program. Write 'help' or '?' to get help" << endl;
     while(cin >> command) {
         if (command == "help" || command == "?") {
             help();
@@ -278,14 +278,14 @@ void Script::countriesFromAirportOrCityCount(){
             if (!valid_code)
                 cout << "Invalid code. Please try again";
         }
-        cout << "From airport " << airport_code << " there are flights to " << countriesFromAirportCount(airport_code).size() << " countries";
+        cout << "From airport " << airport_code << " there are flights to " << countriesFromAirport(airport_code).size() << " countries";
     }
 
     else if (option == 'c' || option == 'C')
         countriesFromCityCount();
 }
 
-set<string> Script::countriesFromAirportCount(const string& airport_code){
+set<string> Script::countriesFromAirport(const string& airport_code){
     set<string> countries = set<string>();
     for (auto airport_vertex: network.getVertexSet()) {
         if (airport_code == airport_vertex->getInfo().getCode()) {
@@ -302,7 +302,7 @@ set<string> Script::countriesFromAirportCount(const string& airport_code){
 
 void Script::countriesFromCityCount() {
     string city;
-    cout << "Please insert the city's name";
+    cout << "Please insert the city's name\n";
     cin >> city;
     Airport airport = Airport("", "", "", "", 0, 0);
     set<string> city_airport_codes;
@@ -313,7 +313,7 @@ void Script::countriesFromCityCount() {
         }
     }
     for (string airport_code : city_airport_codes){
-        set<string> temp = countriesFromAirportCount(airport_code);
+        set<string> temp = countriesFromAirport(airport_code);
         countries.insert(temp.begin(), temp.end());
     }
     cout << "From " << city << " there are flights to " << countries.size() << " countries";

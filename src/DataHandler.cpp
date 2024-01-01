@@ -56,6 +56,8 @@ bool DataHandler::AirportsParse(const string &airports_file) {
 bool DataHandler::FlightsParse(const string &flights_file) {
     vector<string> data;
     readCSV(flights_file, data);
+    Airport source_airport = Airport("", "", "", "", 0, 0);
+    Airport target_airport = Airport("", "", "", "", 0, 0);
     for (const std::string& line : data) {
         istringstream ss(line);
         string Source, Target, Airline;
@@ -65,8 +67,7 @@ bool DataHandler::FlightsParse(const string &flights_file) {
             getline(ss, Airline)) {
             Flight flight(Source, Target, Airline);
             parsedFlights.push_back(flight);
-            Airport source_airport = Airport("", "", "", "", 0, 0);
-            Airport target_airport = Airport("", "", "", "", 0, 0);
+
             for (Airport airprt : Airport("", "", "", "", 0, 0).getAirports()) {
                 if (airprt.getCode() == Source)
                     source_airport = airprt;

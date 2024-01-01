@@ -28,7 +28,7 @@ private:
     void destinations();
     void topCapacity();
     void countriesFromAirportOrCityCount();
-    set<string> countriesFromAirportCount(const string& airport_code);
+    set<string> countriesFromAirport(const string& airport_code);
     void countriesFromCityCount();
 };
 
