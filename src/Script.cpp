@@ -333,10 +333,11 @@ void Script::countriesFromCityCount() {
 }
 
 void Script::essencial() {
-    //Perceber como determinar se é essencial
+    //TODO Não sei como calcular se é essencial ou nao
 }
 
 void Script::xvindoAeroporto() {
+    //TODO verificar se tem aliases e meter caso de erro de escrita
     string Aeroportocode;
     string Opcao;
     int distancia;
@@ -377,7 +378,7 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
-
+            //TODO Capacidade de calcular com base na distancia
         }
     }
 
@@ -399,7 +400,7 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
-
+            //TODO Capacidade de calcular com base na distancia
         }
     }
 
@@ -421,7 +422,7 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
-
+            //TODO Capacidade de calcular com base na distancia
         }
     }
 

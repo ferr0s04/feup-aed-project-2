@@ -56,7 +56,7 @@ private:
     void airportsCountry();
 
     /**
-     * Function for showing number of available cities, airports and countries for a given airport
+     * Function for showing number of available cities, airports and countries for a given airport.
      * The list of cities and countries is also shown
      */
     void destinations();
@@ -68,7 +68,15 @@ private:
     void countriesFromAirportOrCityCount();
     set<string> countriesFromAirport(const string& airport_code);
     void countriesFromCityCount();
+
+    /**
+     * Função que indica os aeroportos que são essenciais.
+     */
     void essencial();
+
+    /**
+     * Função que indica a quantidade de voos que são realizaveis dado um aeroporto com x paragens.
+     */
     void xvindoAeroporto();
 };
 
