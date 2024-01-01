@@ -73,6 +73,8 @@ bool DataHandler::FlightsParse(const string &flights_file) {
                     source_airport = airprt;
                 if(airprt.getCode() == Target)
                     target_airport = airprt;
+                if(source_airport.getCode() == Source && target_airport.getCode() == Target)
+                    break;
             }
             network.addEdge(source_airport, target_airport, 0);
         } else {
