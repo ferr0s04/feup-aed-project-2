@@ -3,6 +3,7 @@
 
 #include "DataHandler.h"
 #include "Script.h"
+#include <iostream>
 
 
 class Application {

@@ -8,6 +8,7 @@ Script::Script(Graph n) {
 
 void Script::run() {
     string command;
+    cout << "You can now start using the program. Write 'help' or '?' to get help";
     while(cin >> command) {
         if (command == "help" || command == "?") {
             help();
