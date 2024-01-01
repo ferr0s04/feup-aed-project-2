@@ -100,26 +100,42 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_data_handler.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_data_handler.html">DataHandler</a> {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_data_handler.html">DataHandler</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airlines_file, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airports_file, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; flights_file);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> AirlinesParse(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airlines_file);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> AirportsParse(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airports_file);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> FlightsParse(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; flights_file);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    vector&lt;Airline&gt; getParsedAirlines();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    vector&lt;Airport&gt; getParsedAirports();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    vector&lt;Flight&gt; getParsedFlights();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_graph.html">Graph</a> getNetwork();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_graph.html">Graph</a> network;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    vector&lt;Airline&gt; parsedAirlines;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    vector&lt;Airport&gt; parsedAirports;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    vector&lt;Flight&gt; parsedFlights;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> readCSV(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename, vector&lt;string&gt;&amp; data);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
-</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_data_handler.html">DataHandler</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airlines_file, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airports_file, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; flights_file);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_data_handler.html#aad98870df042ac3a5f5f5607529d452c">AirlinesParse</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airlines_file);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">//PROJ2_AED_DATAHANDLER_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_data_handler.html#ae0a4f27ac87c82d5fa63ce9342ef98b0">AirportsParse</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; airports_file);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_data_handler.html#a6a3ee7491d94c9d8749c05d9b5b5e783">FlightsParse</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; flights_file);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    vector&lt;Airline&gt; <a class="code hl_function" href="class_data_handler.html#aaa30e146e6019d4242a5ee5ee71277ff">getParsedAirlines</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    vector&lt;Airport&gt; <a class="code hl_function" href="class_data_handler.html#a259656c0e3bf8ac59cbb02f9eeaaf609">getParsedAirports</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    vector&lt;Flight&gt; <a class="code hl_function" href="class_data_handler.html#a3ab74ce8f1afad7f8cc3ac0ac500ce17">getParsedFlights</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="class_graph.html">Graph</a> <a class="code hl_function" href="class_data_handler.html#a5b1ae0f5b06d656c244789ea94e473d9">getNetwork</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="class_graph.html">Graph</a> network;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    vector&lt;Airline&gt; parsedAirlines;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    vector&lt;Airport&gt; parsedAirports;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    vector&lt;Flight&gt; parsedFlights;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> readCSV(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename, vector&lt;string&gt;&amp; data);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif </span><span class="comment">//PROJ2_AED_DATAHANDLER_H</span></div>
 <div class="ttc" id="aclass_data_handler_html"><div class="ttname"><a href="class_data_handler.html">DataHandler</a></div><div class="ttdef"><b>Definition</b> DataHandler.h:16</div></div>
+<div class="ttc" id="aclass_data_handler_html_a259656c0e3bf8ac59cbb02f9eeaaf609"><div class="ttname"><a href="class_data_handler.html#a259656c0e3bf8ac59cbb02f9eeaaf609">DataHandler::getParsedAirports</a></div><div class="ttdeci">vector&lt; Airport &gt; getParsedAirports()</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:112</div></div>
+<div class="ttc" id="aclass_data_handler_html_a3ab74ce8f1afad7f8cc3ac0ac500ce17"><div class="ttname"><a href="class_data_handler.html#a3ab74ce8f1afad7f8cc3ac0ac500ce17">DataHandler::getParsedFlights</a></div><div class="ttdeci">vector&lt; Flight &gt; getParsedFlights()</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:116</div></div>
+<div class="ttc" id="aclass_data_handler_html_a5b1ae0f5b06d656c244789ea94e473d9"><div class="ttname"><a href="class_data_handler.html#a5b1ae0f5b06d656c244789ea94e473d9">DataHandler::getNetwork</a></div><div class="ttdeci">Graph getNetwork()</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:120</div></div>
+<div class="ttc" id="aclass_data_handler_html_a6a3ee7491d94c9d8749c05d9b5b5e783"><div class="ttname"><a href="class_data_handler.html#a6a3ee7491d94c9d8749c05d9b5b5e783">DataHandler::FlightsParse</a></div><div class="ttdeci">bool FlightsParse(const string &amp;flights_file)</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:56</div></div>
+<div class="ttc" id="aclass_data_handler_html_aaa30e146e6019d4242a5ee5ee71277ff"><div class="ttname"><a href="class_data_handler.html#aaa30e146e6019d4242a5ee5ee71277ff">DataHandler::getParsedAirlines</a></div><div class="ttdeci">vector&lt; Airline &gt; getParsedAirlines()</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:108</div></div>
+<div class="ttc" id="aclass_data_handler_html_aad98870df042ac3a5f5f5607529d452c"><div class="ttname"><a href="class_data_handler.html#aad98870df042ac3a5f5f5607529d452c">DataHandler::AirlinesParse</a></div><div class="ttdeci">bool AirlinesParse(const string &amp;airlines_file)</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:10</div></div>
+<div class="ttc" id="aclass_data_handler_html_ae0a4f27ac87c82d5fa63ce9342ef98b0"><div class="ttname"><a href="class_data_handler.html#ae0a4f27ac87c82d5fa63ce9342ef98b0">DataHandler::AirportsParse</a></div><div class="ttdeci">bool AirportsParse(const string &amp;airports_file)</div><div class="ttdef"><b>Definition</b> DataHandler.cpp:30</div></div>
 <div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition</b> Graph.h:61</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

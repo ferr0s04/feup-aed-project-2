@@ -19,6 +19,5 @@ var searchData=
   ['getparsedairports_16',['getParsedAirports',['../class_data_handler.html#a259656c0e3bf8ac59cbb02f9eeaaf609',1,'DataHandler']]],
   ['getparsedflights_17',['getParsedFlights',['../class_data_handler.html#a3ab74ce8f1afad7f8cc3ac0ac500ce17',1,'DataHandler']]],
   ['getsource_18',['getSource',['../class_flight.html#a2c0a618daa82891ba57343f7c4392ab3',1,'Flight']]],
-  ['gettarget_19',['getTarget',['../class_flight.html#a5ac17d66253a23948ae73ceaf7041f9a',1,'Flight']]],
-  ['graph_20',['Graph',['../class_graph.html',1,'']]]
+  ['gettarget_19',['getTarget',['../class_flight.html#a5ac17d66253a23948ae73ceaf7041f9a',1,'Flight']]]
 ];
