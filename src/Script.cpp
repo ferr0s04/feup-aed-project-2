@@ -370,7 +370,7 @@ void Script::xvindoAeroporto() {
     cin  >> AirportCode;
 
     cout << "Do you which to know about cities, countries or airports?" << endl;
-    cout << "Write 'city', 'country' or 'airports'." << endl;
+    cout << "Write 'city', 'country' or 'airport'." << endl;
     cout << "Answer:";
     cin >> Option;
 
@@ -396,6 +396,14 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
+            for (auto item : Airportslist) {
+                if (item.getCode() == AirportCode) {
+                    auto vitem = network.findVertex(item);
+                    dfsCities(vitem, Stops, TempList);
+                    Amount = TempList.size();
+                    break;
+                }
+            }
         }
     }
 
@@ -417,6 +425,14 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
+            for (auto item : Airportslist) {
+                if (item.getCode() == AirportCode) {
+                    auto vitem = network.findVertex(item);
+                    dfsCountries(vitem, Stops, TempList);
+                    Amount = TempList.size();
+                    break;
+                }
+            }
         }
     }
 
@@ -438,8 +454,55 @@ void Script::xvindoAeroporto() {
             }
         }
         else {
+            for (auto item : Airportslist) {
+                if (item.getCode() == AirportCode) {
+                    auto vitem = network.findVertex(item);
+                    dfsAirports(vitem, Stops, TempList);
+                    Amount = TempList.size();
+                    break;
+                }
+            }
         }
     }
 
     cout << "Exists " << Amount << " flights with a distance of " << Stops << " stops from the airport " << AirportCode << endl;
+}
+
+void Script::dfsCities(Vertex *v, int stops, set<string> &tempList) {
+    if (stops == 0) {
+        return;
+    }
+
+    for (const Edge &edge : v->getAdj()) {
+        auto destAirport = edge.getDest()->getInfo();
+        auto destCity = destAirport.getCity();
+        tempList.insert(destCity);
+        dfsCities(edge.getDest(), stops - 1, tempList);
+    }
+}
+
+void Script::dfsCountries(Vertex *v, int stops, set<string> &tempList) {
+    if (stops == 0) {
+        return;
+    }
+
+    for (const Edge &edge : v->getAdj()) {
+        auto destAirport = edge.getDest()->getInfo();
+        auto destCountry = destAirport.getCountry();
+        tempList.insert(destCountry);
+        dfsCountries(edge.getDest(), stops - 1, tempList);
+    }
+}
+
+void Script::dfsAirports(Vertex *v, int stops, set<string> &tempList) {
+    if (stops == 0) {
+        return;
+    }
+
+    for (const Edge &edge : v->getAdj()) {
+        auto destAirport = edge.getDest()->getInfo();
+        auto destCode = destAirport.getCode();
+        tempList.insert(destCode);
+        dfsAirports(edge.getDest(), stops - 1, tempList);
+    }
 }

@@ -78,6 +78,12 @@ private:
      * Function that indicates the quantitaty of flights that you can achieve given an airport with x stops.
      */
     void xvindoAeroporto();
+
+    void dfsCities(Vertex *v, int stops, set<string> &tempList);
+
+    void dfsCountries(Vertex *v, int stops, set<string> &tempList);
+
+    void dfsAirports(Vertex *v, int stops, set<string> &tempList);
 };
 
 
