@@ -332,7 +332,6 @@ void Script::countriesFromCityCount() {
         countries.insert(temp.begin(), temp.end());
     }
     cout << "From " << city << " there are flights to " << countries.size() << " countries";
-    //TODO - check if city is correct and check for aliases
 }
 
 void Script::essencial() {
