@@ -51,14 +51,17 @@ void Script::run() {
         if (command == "countries-count-from-airport/city"){
             countriesFromAirportOrCityCount();
             cout << "\n";
+            continue;
         }
         if (command == "essential") {
             essencial();
             cout << "\n";
+            continue;
         }
         if (command == "xgiven") {
             xvindoAeroporto();
             cout << "\n";
+            continue;
         }
         else {
             cerr << "Invalid command. Type 'help' to show list of available commands." << endl;
@@ -243,8 +246,8 @@ void Script::topCapacity() {
     }
 
     // Sort by decreasing order of capacity
-    std::vector<std::pair<std::string, int>> sortedAirports(flightsPerAirport.begin(), flightsPerAirport.end());
-    std::sort(sortedAirports.begin(), sortedAirports.end(), [](const auto& a, const auto& b) {
+    vector<std::pair<std::string, int>> sortedAirports(flightsPerAirport.begin(), flightsPerAirport.end());
+    sort(sortedAirports.begin(), sortedAirports.end(), [](const auto& a, const auto& b) {
         return a.second > b.second;
     });
 
@@ -333,6 +336,24 @@ void Script::countriesFromCityCount() {
 }
 
 void Script::essencial() {
+    map<string, vector<string>> flights;
+    set<string> essentialAirports;
+    for (Flight& f : Flight::getFlights()) {
+        flights[f.getTarget()].push_back(f.getSource());
+    }
+    cout << "Essential Airports:" << endl;
+    for (const auto& i : flights) {
+        if (i.second.size() == 1) {
+            essentialAirports.insert(i.second[0]);
+        }
+    }
+    for (string e : essentialAirports) {
+        for (Airport& a : Airport::getAirports()) {
+            if (e == a.getCode()) {
+                cout << "Code: " << a.getCode() << " | Name: " << a.getName() << endl;
+            }
+        }
+    }
 }
 
 void Script::xvindoAeroporto() {
