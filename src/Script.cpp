@@ -399,7 +399,7 @@ void Script::xvindoAeroporto() {
             for (auto item : Airportslist) {
                 if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
-                    dfsCities(vitem, Stops, TempList);
+                    dfsCities(vitem, Stops + 1, TempList);
                     Amount = TempList.size();
                     break;
                 }
@@ -428,7 +428,7 @@ void Script::xvindoAeroporto() {
             for (auto item : Airportslist) {
                 if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
-                    dfsCountries(vitem, Stops, TempList);
+                    dfsCountries(vitem, Stops + 1, TempList);
                     Amount = TempList.size();
                     break;
                 }
@@ -457,7 +457,7 @@ void Script::xvindoAeroporto() {
             for (auto item : Airportslist) {
                 if (item.getCode() == AirportCode) {
                     auto vitem = network.findVertex(item);
-                    dfsAirports(vitem, Stops, TempList);
+                    dfsAirports(vitem, Stops + 1, TempList);
                     Amount = TempList.size();
                     break;
                 }
