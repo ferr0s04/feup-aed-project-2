@@ -1,11 +1,12 @@
 List of available commands:
 
 airports-country -> Displays the list of airports of a given country.
+countries-count-from-airport/city -> Displays the number of different countries that a given airport/city flies to.
 destinations -> Shows the number of cities, airports and countries available for a given airport.
                 A list of cities and countries is also shown.
-flights-airport -> Displays the number of flights out of a given airport and corresponding number of airlines.
-global-stats -> Shows the global number of airports, flights and airlines.
-flight-per-city -> Displays the number of flights of a given city or airline.
-countries-count-from-airport/city -> Displays the number of different countries that a given airport/city flies to.
 essential -> Displays the airports that are essential to the network.
+flights-airport -> Displays the number of flights out of a given airport and corresponding number of airlines.
+flight-per-city -> Displays the number of flights of a given city or airline.
+global-stats -> Shows the global number of airports, flights and airlines.
+top-capacity -> Shows the top-k airports with the most traffic capacity. Length k is user-defined.
 xgiven -> Shows the number of cities or countries or airports given an airport with x stops.
